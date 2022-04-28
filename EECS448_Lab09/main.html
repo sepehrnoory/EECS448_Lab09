@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 9 Website</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body onload="clearForm()">
+    <div class="navigation" id="navbar">
+        <a class="active">Lab 09</a>
+        <a onclick="loadExercise(2)">Multiplication Table</a>
+        <a onclick="loadExercise(3)">Quiz!</a>
+        <a onclick="loadExercise(4)">Web Store</a>
+    </div>
+
+    <div id="multiplication" style="display:none">
+        <br><br>
+        <?php include 'exercise1.php';?>
+    </div>
+
+    <div id="quiz" style="display:none">
+        <form id="quizForm" action="exercise2.php" method="POST">
+            <p>1. What is the derivative of 3x?</p><br>
+            <input type="radio" value="x" name="question1">
+            <label for="x">x</label><br>
+            <input type="radio" value="6" name="question1">
+            <label for="6">6</label><br>
+            <input type="radio" value="3" name="question1">
+            <label for="3">3</label><br>
+            <input type="radio" value="3x" name="question1">
+            <label for="3x">3x</label>
+            <p>2. How many colors does it take to color a map so no two maps sharing a border share a color?</p>
+            <input type="radio" value="2" name="question2">
+            <label for="2">2</label><br>
+            <input type="radio" value="4" name="question2">
+            <label for="4">4</label><br>
+            <input type="radio" value="8" name="quesiton2">
+            <label for="8">8</label><br>
+            <input type="radio" value="12" name="question2">
+            <label for="12">12</label><br>
+            <p>3. Who started the company Apple?</p>
+            <input type="radio" value="Jobs" name="question3">
+            <label for="Jobs">Steve Jobs</label><br>
+            <input type="radio" value="Besos" name="question3">
+            <label for="Besos">Jeff Besos</label><br>
+            <input type="radio" value="Musk" name="quesiton3">
+            <label for="Musk">Elon Musk</label><br>
+            <input type="radio" value="Gates" name="question3">
+            <label for="Gates">Bill Gates</label><br>
+            <p>4. Whats the latest iphone released?</p>
+            <input type="radio" value="11" name="question4">
+            <label for="11">11</label><br>
+            <input type="radio" value="9" name="question4">
+            <label for="9">9</label><br>
+            <input type="radio" value="13" name="quesiton4">
+            <label for="13">13</label><br>
+            <input type="radio" value="15" name="question4">
+            <label for="15">15</label><br>
+            <p>5. Who is the best basketball player of all time?</p>
+            <input type="radio" value="Lebron" name="question5">
+            <label for="Lebron">Lebron James</label><br>
+            <input type="radio" value="Jordan" name="question5">
+            <label for="Jordan">Micheal Jordan</label><br>
+            <input type="radio" value="Steph" name="quesiton5">
+            <label for="Steph">Steph Curry</label><br>
+            <input type="radio" value="Ja" name="question5">
+            <label for="Ja">Ja Morant</label><br>
+        <br>
+            <input type="submit" value="Submit Quiz">
+        </form>
+    </div>
+
+    <div id="store" style="display:none">
+        <h1>Welcome To The Store!</h1>
+        <div id="imgDiv" style="display:none">
+            <h2 id="items">Air Jordan 1 - $400</h2><br>
+            <img id="storeImg" src="./assets/jordan1"><br><br>
+            <button class="storeBtn" id="previous" type="button" onclick="previous()">Previous</button>
+            <button class="storeBtn" id="next" type="button" onclick="next()">Next</button>
+        </div>
+        <div id="POS" stype="display:none">
+            <h2>Order Form</h2>
+            <form id="orderForm" action="./exercise3.php" method="POST">
+                <label for="username">Username: </label>>
+                <input type="text" id="username" name="Username" placeholder="name@domain.com">
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="Password" placeholder="password"><br>
+
+                <label for="jordan1">Air Jordan 1 (Quantity)</label>
+                <input type="number" id="jordan1" name="Jordan1" placeholder="0"><br>
+                <label for="jordan4">Air Jordan 4 (Quantity)</label>
+                <input type="number" id="jordan4" name="Jordan4" placeholder="0"><br>
+                <label for="jordan12">Air Jordan 12 (Qunatity)</label>
+                <input type="number" id="jordan12" name="Jordan12" placeholder="0"><br><br>
+
+                <h3>Shipping and Handling</h3>
+                <input type="radio" value="sevenDay" name="shipping">
+                <label for="sevenDay">Seven Days (Free)</label>
+                <input type="radio" value="threeDay" name="shipping">
+                <label for="threeDay">Three Days ($15)</label>
+                <input type="radio" value="overnight" name="shipping">
+                <label for="overnight">Overnight ($40)</label><br><br>
+                
+                <button type="reset" class="storeBtn" id="reset"></button>
+                <input type="submit" class="storeBtn" value="Place Order" onclick="return checkForm()"></button>
+
+
+            </form>
+        </div>
+    </div>
+
+    <script  src="index.js"></script>
+
+    
+</body>
+</html>
